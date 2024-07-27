@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Blog from './components/Blog';
@@ -7,6 +7,12 @@ import Blog2 from './components/Blog2';
 
 function App() {
   const myRef = useRef();
+
+  useEffect(() => {
+    if (myRef.current) {
+      console.log(myRef.current); // Access the ref safely after component mounts
+    }
+  }, []);
 
   return (
     <BrowserRouter>
